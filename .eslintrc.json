@@ -2,7 +2,7 @@
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
     "@typescript-eslint/no-empty-interface": "off",
-    "no-empty-interface": false
+    "@typescript-eslint/no-explicit-any": "off"
     }
 }
 

@@ -3,8 +3,9 @@ import Image from "next/image";
 import { FC, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
-import { motion, AnimatePresence, usePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
+// eslint-disable-next-line
 interface MerchandiseProps {}
 
 const Merchandise: FC<MerchandiseProps> = ({}) => {
@@ -77,7 +78,7 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
           className="w-[80%] h-[90%] rounded-3xl flex flex-nowrap transition-transform ease-in-out duration-500"
         >
           {MerchBg.map((bg, id: any) => (
-            <AnimatePresence>
+            <AnimatePresence key={id}>
             <div
               key={id}
               className={
@@ -104,7 +105,7 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
                 </motion.div>
 
                 {Merch.map((img, idx) => (
-                <AnimatePresence initial={false} custom={direction}>
+                <AnimatePresence key={id} initial={false} custom={direction}>
 
                  {activeItem==idx && <motion.img
                   

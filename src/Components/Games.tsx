@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
+// eslint-disable-next-line
 interface GamesProps {}
 
 const Games: FC<GamesProps> = ({}) => {
@@ -109,15 +110,15 @@ const Games: FC<GamesProps> = ({}) => {
                   <AnimatePresence >
                     {activeItem == id && (
                       <motion.img
-                        // key={id}
-                        // variants={variants}
-                        // initial="initial"
-                        // animate="animate"
-                        // exit="exit"
-                        // custom={direction}
-                        initial={{x:800}}
-                        animate={{x:0, opacity:1}}
-                        exit={{x:-800, opacity:0.2}}
+                        key={id}
+                        variants={variants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        custom={direction}
+                        // initial={{x:800}}
+                        // animate={{x:0, opacity:1}}
+                        // exit={{x:-800, opacity:0.2}}
                         transition={{ duration: 1, ease: "backInOut" }}
                         src={bg}
                         className="h-full w-full rounded-3xl absolute object-cover "
@@ -161,7 +162,7 @@ const Games: FC<GamesProps> = ({}) => {
             color="white"
           />
           <div className="w-full h-full flex flex-nowrap justify-around overflow-x-scroll scrollbar-hide scroll-smooth relative">
-            {GamesPrev.map((bg, id: Number) => (
+            {GamesPrev.map((bg, id: number) => (
               <div
                 key={id.toString()}
                 className="w-[24%] rounded-3xl h-full relative "

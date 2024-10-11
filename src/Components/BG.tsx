@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { FC } from 'react'
-
+// eslint-disable-next-line
 interface BGProps {
-  
+
 }
 
 const BG: FC<BGProps> = ({}) => {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-
+// eslint-disable-next-line
 interface CarouselsProps {}
 
 const Carousels: FC<CarouselsProps> = ({}) => {

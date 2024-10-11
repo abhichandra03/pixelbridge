@@ -1,9 +1,9 @@
 'use client'
-import { FC, use, useRef, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
-import Image from 'next/image'
 
+// eslint-disable-next-line
 interface PhotoSecProps {
   
 }
@@ -19,7 +19,7 @@ const PhotoSec: FC<PhotoSecProps> = ({}) => {
         setSelected(item)
     }
 
-    const handleScroll =(scrollOffSet:Number) =>{
+    const handleScroll =(scrollOffSet:number) =>{
       if (ref.current != null) {
         ref.current.scrollLeft += scrollOffSet;
       }
@@ -47,7 +47,7 @@ const PhotoSec: FC<PhotoSecProps> = ({}) => {
           selected == "Photos" &&
           <div ref={ref} className='relative w-[90%]  h-3/4 flex whitespace-nowrap justify-start items-center overflow-x-scroll scrollbar-hide scroll-smooth'>
             {photos.map((photo, id) => (
-              <div className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
+              <div key={id} className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
                 <div className='w-full h-full bg-[#A6A6A6] rounded-3xl flex  whitespace-nowrap justify-center items-center'>{photo}</div>
                 </div>
             ))}
@@ -56,7 +56,7 @@ const PhotoSec: FC<PhotoSecProps> = ({}) => {
           selected == "Videos" &&
           <div ref={ref} className='relative w-[90%]  h-3/4 flex  whitespace-nowrap justify-start items-center overflow-x-scroll scrollbar-hide scroll-smooth'>
             {videos.map((video, id) => (
-              <div className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
+              <div key={id} className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
                 <div className='w-full h-full bg-[#A6A6A6] rounded-3xl flex  whitespace-nowrap justify-center items-center'>{video}</div>
                 </div>
             ))}

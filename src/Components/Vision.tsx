@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 
+// eslint-disable-next-line
 interface VisionProps {}
 
 const Vision: FC<VisionProps> = ({}) => {

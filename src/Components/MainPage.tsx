@@ -1,6 +1,5 @@
 'use client'
 import { FC } from 'react'
-import {motion} from 'framer-motion'
 import History from '@/Components/History'
 import PhotoSec from './PhotoSec'
 import Vision from './Vision'
@@ -11,7 +10,7 @@ import Merchandise from './Merchandise'
 import Games from './Games'
 import Socials from './Socials'
 
-
+// eslint-disable-next-line
 interface MainPageProps {
   
 }

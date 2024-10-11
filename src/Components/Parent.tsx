@@ -1,8 +1,9 @@
 "use client";
-import { FC, useRef } from "react";
+import { FC } from "react";
 import BG from "./BG";
 import MainPage from "./MainPage";
 
+// eslint-disable-next-line
 interface ParentProps {}
 
 const Parent: FC<ParentProps> = ({}) => {

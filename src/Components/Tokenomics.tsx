@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 
+// eslint-disable-next-line
 interface TokenomicsProps {}
 
 const Tokenomics: FC<TokenomicsProps> = ({}) => {

@@ -3,6 +3,7 @@ import { FC } from "react";
 import { BsTwitterX } from "react-icons/bs";
 import { FaTelegramPlane } from "react-icons/fa";
 
+// eslint-disable-next-line
 interface SocialsProps {}
 
 const Socials: FC<SocialsProps> = ({}) => {
