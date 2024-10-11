@@ -1,6 +1,6 @@
 "use client";
 import { FC, useRef, useState } from "react";
-import { easeInOut, motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
@@ -83,7 +83,7 @@ const Games: FC<GamesProps> = ({}) => {
                     : `hidden`
                 }
               >
-                <div className="w-full h-full bg-black rounded-3xl relative">
+                <div className="w-full h-full bg-black rounded-3xl relative overflow-hidden transition-all duration-500 ease-in-out">
                   {/* <AnimatePresence custom={direction} initial={false}>
                     {activeItem == id && (
                       <motion.img
@@ -109,15 +109,15 @@ const Games: FC<GamesProps> = ({}) => {
                   <AnimatePresence >
                     {activeItem == id && (
                       <motion.img
-                        key={id}
+                        // key={id}
                         // variants={variants}
                         // initial="initial"
                         // animate="animate"
                         // exit="exit"
                         // custom={direction}
                         initial={{x:800}}
-                        animate={{x:0}}
-                        exit={{x:-800}}
+                        animate={{x:0, opacity:1}}
+                        exit={{x:-800, opacity:0.2}}
                         transition={{ duration: 1, ease: "backInOut" }}
                         src={bg}
                         className="h-full w-full rounded-3xl absolute object-cover "

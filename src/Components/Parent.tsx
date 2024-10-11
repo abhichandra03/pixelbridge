@@ -10,12 +10,6 @@ const Parent: FC<ParentProps> = ({}) => {
   const section1 = useRef(null);
   const section2 = useRef(null);
 
-//   const scrollTo =(elementRef) =>(
-//     window.scrollTo({
-//         top:elementRef.current.offsetTop,
-//         behavior:'smooth'
-//     })
-//   )
 
   return (
     <div  className="w-full h-screen overflow-x-scroll relative scrollbar-hide">

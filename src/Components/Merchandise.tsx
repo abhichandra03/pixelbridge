@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence, usePresence } from "framer-motion";
-import { delay } from "framer-motion/dom";
-import { div } from "framer-motion/client";
 
 interface MerchandiseProps {}
 
