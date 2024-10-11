@@ -7,7 +7,7 @@ const Vision: FC<VisionProps> = ({}) => {
   return (
     <div className="w-full h-[120vh] relative overflow-hidden  flex flex-col justify-center items-center bg-white">
       <div className="absolute w-[200%] h-[80%] -bottom-32 -left-24   transform -rotate-[8deg] transition duration-300 ">
-        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"></div>
+        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"/>
       </div>
       <div className="absolute  w-5/6 h-3/4 -translate-x-2/4 -translate-y-2/4 left-2/4 top-[55%] ">
         <div className="relative w-full h-3/4 ">

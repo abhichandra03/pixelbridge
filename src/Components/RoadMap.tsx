@@ -7,7 +7,7 @@ const RoadMap: FC<RoadMapProps> = ({}) => {
   return (
     <div className="w-full h-[120vh] bg-white  relative flex flex-col justify-around items-start overflow-hidden">
       <div className="absolute w-[200%] h-[60%] -top-32 -left-24   transform rotate-[8deg]     ">
-        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"></div>
+        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"/>
       </div>
       <div className="-z-4 absolute w-1/2 h-[90%] -translate-y-2/4 right-0 top-2/4 ">
         <div className="relative w-full h-3/4 ">

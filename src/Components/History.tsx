@@ -7,7 +7,7 @@ const History: FC<HistoryProps> = ({}) => {
   return (
     <div className=" relative w-full h-[100vh] rounded-t-[30px] flex justify-end overflow-hidden bg-white">
         <div className=" absolute w-[200%] h-[110%] -top-32 -left-24   transform rotate-[8deg] transition duration-300">
-            <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"></div>
+            <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"/>
         </div>
       <div className="absolute left-0 w-1/2 h-full ">
         <div className=" w-full h-3/4 flex justify-end items-end">

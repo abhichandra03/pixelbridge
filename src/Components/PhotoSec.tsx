@@ -38,7 +38,7 @@ const PhotoSec: FC<PhotoSecProps> = ({}) => {
           selected == "All" &&
           <div ref={ref} className='relative w-[90%] h-3/4 flex  whitespace-nowrap justify-start items-center overflow-x-scroll scrollbar-hide scroll-smooth'>
             {files.map((file, id) => (
-              <div className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
+              <div key={id} className='flex min-w-[445px] h-full p-2  rounded-3xl justify-center items-center'>
                 <div className='w-full h-full bg-[#A6A6A6] rounded-3xl flex  whitespace-nowrap justify-center items-center'>{file}</div>
                 </div>
             ))}

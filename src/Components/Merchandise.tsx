@@ -87,7 +87,7 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
               }
             >
                 <motion.div
-                  key={id}
+                  
                   className="w-full h-full absolute"
                   initial={{ opacity: activeItem == id ? 0.8 : 1 }}
                   animate={{ opacity: activeItem == id ? 1 : 0.5 }}
@@ -114,22 +114,13 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
                   animate='animate'
                   exit='exit'
                   custom={direction}
-                  // initial={{y: 100}}
-                  // animate={{y:[0,10,20,0,30,50] }}
-                  // exit={{y:100}}
-                  // initial={{ x: direction>0? 800: -800 }}
-                  // animate={{ x:  0  }}
-                  // exit={{ x:  direction>0? -800: 800, opacity:0.5  }}
-                  // initial={{ x: (activeItem == idx && direction>0) ? 800 : -800 }}
-                  // animate={{ x: activeItem == idx ? 800 : (direction<0? -800:800) }}
-                  // exit={{ x: (activeItem == idx && direction>0) ? -800 : -800, opacity:0.5 }}
-                  // exit={{backgroundColor:activeItem==id? 'red':'blue'}}
                   transition={{ duration: 1, ease: "backInOut" }}
                   src={img}
                   className="h-full z-10 absolute object-cover "
                   />}
                   </AnimatePresence>
-                  ))
+                  )
+                  )
                   }
             </div>
               </AnimatePresence>

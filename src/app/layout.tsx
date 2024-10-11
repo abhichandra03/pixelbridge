@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -40,10 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${Cheeseburga.variable} ${Montserrat.variable} ${KumbhSans.variable} antialiased  `}
       >
-        {/* {children} */}
-        {/* <motion.div> */}
         <Parent />
-        {/* </motion.div> */}
       </body>
     </html>
   );

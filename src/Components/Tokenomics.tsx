@@ -7,7 +7,7 @@ const Tokenomics: FC<TokenomicsProps> = ({}) => {
   return (
     <div className="w=full h-[140vh] relative overflow-hidden bg-white">
       <div className="absolute w-[200%] h-[100%] -top-32 -left-24  transform rotate-[8deg]     ">
-        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"></div>
+        <div className="w-full h-full bg-radial-gradient from-[#FFF280] to-[#FFC700]"/>
       </div>
 
       <div className="w-full h-[100vh] flex flex-col justify-center  items-start ">
