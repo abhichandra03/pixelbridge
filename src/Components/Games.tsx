@@ -12,7 +12,7 @@ const Games: FC<GamesProps> = ({}) => {
   const variants: any = {
     initial: (direction: number) => {
       return {
-        x: direction > 0 ? 800 : -800,
+        x: direction > 0 ? 1250 : -1250,
       };
     },
     animate: {
@@ -21,7 +21,7 @@ const Games: FC<GamesProps> = ({}) => {
     },
     exit: (direction: number) => {
       return {
-        x: direction > 0 ? -800 : 800,
+        x: direction > 0 ? -1250 : 1250,
       };
     },
   };
@@ -29,7 +29,6 @@ const Games: FC<GamesProps> = ({}) => {
   const GamesBg = [
     "/alabayAssets/alabayGames/alabay guard prev 2 1.png",
     "/alabayAssets/alabayGames/alabay lost heritage prev 1.png",
-    "/alabayAssets/alabayGames/alabay lost heritage prev 1.png"
   ];
   const GamesPrev = [
     "/alabayAssets/alabayGames/artifacts 2.png",
@@ -73,59 +72,26 @@ const Games: FC<GamesProps> = ({}) => {
           />
           <div
             ref={slider}
-            className="w-full h-full  flex flex-nowrap  relative transition-transform ease-in-out duration-500"
+            className="w-full h-full  flex flex-nowrap overflow-hidden relative transition-transform ease-in-out duration-500"
           >
             {GamesBg.map((bg, id: any) => (
               <div
                 key={id}
-                className={
-                  activeItem == id
-                    ? `min-w-full h-full overflow-hidden transition-all duration-500 ease-in-out relative`
-                    : `hidden`
-                }
               >
-                <div className="w-full h-full bg-black rounded-3xl relative overflow-hidden transition-all duration-500 ease-in-out">
-                  {/* <AnimatePresence custom={direction} initial={false}>
-                    {activeItem == id && (
-                      <motion.img
-                        key={id}
-                        variants={variants}
-                        // initial={{ x: (activeItem == id && direction>0) ? 1000 : -1000, opacity:0}}
-                        // animate={{ x: activeItem == id ? 0: (direction>0 ? 1000:-1000), opacity: 1 }}
-                        // exit={{ x: direction>0 ? 1000:  -1000, opacity:1 }}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        // initial={{opacity:0}}
-                        // animate={{opacity:1}}
-                        // exit={{opacity:0}}
-                        custom={direction}
-                        transition={{ duration: 1, ease: "backInOut" }}
-                        src={bg}
-                        className="w-full h-full object-cover rounded-3xl"
-                      />
-                    )}
-                  </AnimatePresence> */}
-
-                  <AnimatePresence >
-                    {activeItem == id && (
-                      <motion.img
-                        key={id}
-                        variants={variants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        custom={direction}
-                        // initial={{x:800}}
-                        // animate={{x:0, opacity:1}}
-                        // exit={{x:-800, opacity:0.2}}
-                        transition={{ duration: 1, ease: "backInOut" }}
-                        src={bg}
-                        className="h-full w-full rounded-3xl absolute object-cover "
-                      />
-                    )}
-                  </AnimatePresence>
-                </div>
+                <AnimatePresence custom={direction} initial={false} >
+                {activeItem === id  && (
+                  <motion.img
+                    key={id} 
+                    variants={variants}
+                    custom={direction}initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="w-full h-full absolute  object-cover rounded-3xl"
+                    transition={{ duration: 1, ease: "backInOut" }}
+                    src={bg}
+                  />
+                )}
+              </AnimatePresence>
                 <div className="absolute w-1/4  h-[10%] -translate-y-2/4 -translate-x-2/4 bottom-10 left-2/4">
                   <motion.button
                     whileTap={{ scale: 0.5 }}

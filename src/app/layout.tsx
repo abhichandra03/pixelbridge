@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${Cheeseburga.variable} ${Montserrat.variable} ${KumbhSans.variable} antialiased  `}
+        className={`${geistSans.variable} ${Cheeseburga.variable} ${Montserrat.variable} ${KumbhSans.variable} antialiased z-10 `}
       >
         <Parent />
       </body>

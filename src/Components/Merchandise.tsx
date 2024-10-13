@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import { FC, useRef, useState } from "react";
+import { FC,  useEffect,  useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,13 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 interface MerchandiseProps {}
 
 const Merchandise: FC<MerchandiseProps> = ({}) => {
-  const slider = useRef<any>(null);
   const [activeItem, setActiveItem] = useState<any>(0);
-  const [direction, setDirection] = useState(0)
+  const [direction, setDirection] = useState(0);
 
-
-
-  
   const MerchBg = [
     "/alabayAssets/alabayMerch/black hoodie bck.png",
     "/alabayAssets/alabayMerch/blue cap bck.png",
@@ -28,43 +23,55 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
     "/alabayAssets/alabayMerch/pink tshirt.png",
     "/alabayAssets/alabayMerch/yellow tshirt.png",
   ];
-  
-  const variants:any = {
-    initial:(direction: number)=>{
-      return{
-        x: direction>0 ? 800:-800
-      }
+
+  const variants: any = {
+    initial: (direction: number) => {
+      return {
+        x: direction > 0 ? 800 : -800,
+      };
     },
-    animate:{
-      x:0,
-      opacity:1
+    animate: {
+      x: 0,
+      opacity: 1,
     },
-    exit:(direction: number)=>{
-      return{
-        x: direction>0 ? -800:800
-      }
+    exit: (direction: number) => {
+      return {
+        x: direction > 0 ? -800 : 800,
+      };
     },
-  }
+  };
+  useEffect(() =>{
+    const interval= setInterval(() =>{
+      setDirection(1)
+      setActiveItem((activeItem + 1) % MerchBg.length);
+    },2000)
+
+    return(() =>{
+      clearInterval(interval)
+    })
+  },[activeItem])
+
 
   const handleScrollLeft = () => {
-    setDirection(-1)
+    setDirection(-1);
     setActiveItem((MerchBg.length + activeItem - 1) % MerchBg.length);
   };
   const handleScrollRight = () => {
-    setDirection(1)
+    setDirection(1);
     setActiveItem((activeItem + 1) % MerchBg.length);
   };
 
 
   return (
     <div className="w-full h-[130vh] flex flex-col justify-center items-center relative overflow-hidden bg-white">
-      
       <div className="absolute w-[150%] h-[40%] -bottom-40 -left-24  transform -rotate-[8deg]">
         <div className="w-full h-full bg-yellow-400"></div>
       </div>
-      
+
       <div className="w-full h-1/3">
-        <p className="Cheeseburga text-[#FFA800] text-[150px] text-center">Merchandise</p>
+        <p className="Cheeseburga text-[#FFA800] text-[150px] text-center">
+          Merchandise
+        </p>
       </div>
       <div className="w-[75%]  h-full relative flex  justify-center ">
         <FaArrowLeft
@@ -74,57 +81,45 @@ const Merchandise: FC<MerchandiseProps> = ({}) => {
           color="white"
         />
         <div
-          ref={slider}
-          className="w-[80%] h-[90%] rounded-3xl flex flex-nowrap transition-transform ease-in-out duration-500"
+          
+          className="w-[80%] h-[90%] relative rounded-3xl flex flex-nowrap transition-transform ease-in-out duration-500 overflow-hidden"
         >
-          {MerchBg.map((bg, id: any) => (
-            <AnimatePresence key={id}>
+          {MerchBg.map((bg, id: number) => (
             <div
               key={id}
-              className={
-                activeItem == id
-                  ? `w-full h-full relative overflow-hidden rounded-3xl transition-all duration-500 ease-in-out`
-                  : `hidden`
-              }
             >
-                <motion.div
-                  
-                  className="w-full h-full absolute"
-                  initial={{ opacity: activeItem == id ? 0.8 : 1 }}
-                  animate={{ opacity: activeItem == id ? 1 : 0.5 }}
-                  exit={{ opacity: activeItem == id ? -0.5 : 1 }}
-                  transition={{ duration: 1, ease: "backInOut" }}
-                >
-                  <Image
+                <AnimatePresence  initial={false}>
+                {activeItem === id  && (
+                  <motion.img
+                    key={id} 
+                    className="w-full h-full absolute  object-cover rounded-3xl"
+                    initial={{ opacity: 0.1 }}
+                    animate={{ opacity: 1, }}
+                    exit={{ opacity: 0.1, transition: { duration: 1 } }}
+                    transition={{ duration: 1, ease: "backInOut" }}
                     src={bg}
-                    alt=""
-                    fill
-                    loading="eager"
-                    className="object-cover rounded-3xl"
                   />
-                </motion.div>
-
-                {Merch.map((img, idx) => (
-                <AnimatePresence key={id} initial={false} custom={direction}>
-
-                 {activeItem==idx && <motion.img
-                  
-                  key={idx}
-                  variants={variants}
-                  initial='initial'
-                  animate='animate'
-                  exit='exit'
-                  custom={direction}
-                  transition={{ duration: 1, ease: "backInOut" }}
-                  src={img}
-                  className="h-full z-10 absolute object-cover "
-                  />}
-                  </AnimatePresence>
-                  )
-                  )
-                  }
-            </div>
+                )}
               </AnimatePresence>
+
+              {Merch.map((img, idx) => (
+                <AnimatePresence key={idx} initial={false} custom={direction}>
+                  {activeItem == idx && (
+                    <motion.img
+                      key={idx}
+                      variants={variants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      custom={direction}
+                      transition={{ duration: 1, ease: "backInOut" }}
+                      src={img}
+                      className="h-full z-10 absolute object-cover"
+                    />
+                  )}
+                </AnimatePresence>
+              ))}
+            </div>
           ))}
         </div>
         <FaArrowRight
